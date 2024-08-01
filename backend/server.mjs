@@ -22,14 +22,11 @@ app.use("/check",checkRoutes);
 //   res.redirect('/auth');
 //   res.clearCookie('jwt');
 // });
-app.get('/logout', (req, res) => {
-  res.clearCookie('jwt');
-  res.redirect('/auth');
-});
 
-// app.get('/', (req, res) => {
-//   res.send('Hello, world!');
-// });
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`)
 });
