@@ -10,6 +10,13 @@ connectDB();
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://finance-app-ctjj.vercel.app/',
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
 
 import userRoutes from './routes/userRoutes.mjs'
 import txnRoutes from './routes/txnRoutes.mjs'
