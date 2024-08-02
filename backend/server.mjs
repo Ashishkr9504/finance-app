@@ -11,11 +11,17 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 const cors = require('cors');
-app.use(cors({
-    origin: 'https://finance-app-ctjj.vercel.app/',
-    methods: ['POST', 'GET', 'PUT', 'DELETE'],
-    credentials: true
-}));
+// app.use(cors({
+//     origin: 'https://finance-app-ctjj.vercel.app/',
+//     methods: ['POST', 'GET', 'PUT', 'DELETE'],
+    
+//     credentials: true
+// }));
+app.use(cors());
+app.get("/",(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credential","true");
+  res.send("Api is running");
+})
 
 
 import userRoutes from './routes/userRoutes.mjs'

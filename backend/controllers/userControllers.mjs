@@ -33,7 +33,7 @@ const authUser = asyncHandler(async (req, res) => {
   }
   else if (await user.matchPassword(password) == true) {
     const token = generateToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge : 3 * 60 * 60 * 1000});
+    res.cookie("jwt", token, { httpOnly: true,sameSite: 'none', maxAge : 3 * 60 * 60 * 1000});
     res.status(201).json({
       name: user.name,
       email: user.email,
